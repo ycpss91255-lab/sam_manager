@@ -4,7 +4,7 @@
 
 SAM ファミリーの promptable segmentation backend を安定したインターフェースの背後にラップする ROS 2 service。ターゲット画像と reference(image + mask)が与えられると — runtime prompt store から名前で参照するか、request 内に inline で渡すか — reference が示すのと同じクラスのオブジェクトを記述する二値 mask を返します。
 
-デフォルト backend は SegGPT(`ycpss91255-docker/seggpt` の Layer 2 Python API 経由)。インターフェースは将来の backend 交換(VRP-SAM、PerSAM-F、SAM 2 Tiny…)時に consumer 側の修正が不要なよう設計されています — backend の選択は node 起動パラメータであり、wire contract には含まれません。
+デフォルト backend は SegGPT(`ycpss91255-lab/seggpt` の Layer 2 Python API 経由)。インターフェースは将来の backend 交換(VRP-SAM、PerSAM-F、SAM 2 Tiny…)時に consumer 側の修正が不要なよう設計されています — backend の選択は node 起動パラメータであり、wire contract には含まれません。
 
 ## Scope
 
@@ -102,5 +102,5 @@ Apache-2.0。[LICENSE](../LICENSE) を参照。
 
 ## 関連 repo
 
-- [`ycpss91255-docker/seggpt`](https://github.com/ycpss91255-docker/seggpt) — SegGPT backend、`BackendInterface` の最初の具体実装。`sam_manager` は Layer 2 Python API(`from seggpt.api import SegGPTBackend`)で import;backend からの逆方向 import は禁止。
-- [`ycpss91255-docker/base`](https://github.com/ycpss91255-docker/base) — 両 repo が共用する Docker workspace template。
+- [`ycpss91255-lab/seggpt`](https://github.com/ycpss91255-lab/seggpt) — SegGPT backend、`BackendInterface` の最初の具体実装。`sam_manager` は Layer 2 Python API(`from seggpt.api import SegGPTBackend`)で import;backend からの逆方向 import は禁止。
+- [`ycpss91255-lab/base`](https://github.com/ycpss91255-lab/base) — 両 repo が共用する Docker workspace template。

@@ -4,7 +4,7 @@
 
 ROS 2 service,將 SAM 家族的 promptable segmentation backend 包在穩定介面後面。給定目標影像 + reference(image + mask)— 由 runtime prompt store 用名稱查,或在 request 中 inline 帶入 — 回傳描述同類物件的二值 mask。
 
-預設 backend 是 SegGPT(透過 `ycpss91255-docker/seggpt` 的 Layer 2 Python API)。介面設計為未來換 backend(VRP-SAM、PerSAM-F、SAM 2 Tiny…)時 consumer 端零修改 — backend 選擇是 node 啟動參數,不在 wire contract 內。
+預設 backend 是 SegGPT(透過 `ycpss91255-lab/seggpt` 的 Layer 2 Python API)。介面設計為未來換 backend(VRP-SAM、PerSAM-F、SAM 2 Tiny…)時 consumer 端零修改 — backend 選擇是 node 啟動參數,不在 wire contract 內。
 
 ## Scope
 
@@ -102,5 +102,5 @@ Apache-2.0。見 [LICENSE](../LICENSE)。
 
 ## 相關 repo
 
-- [`ycpss91255-docker/seggpt`](https://github.com/ycpss91255-docker/seggpt) — SegGPT backend,`BackendInterface` 的第一個具體實作。`sam_manager` 透過 Layer 2 Python API(`from seggpt.api import SegGPTBackend`)import;反向 import backend 不允許。
-- [`ycpss91255-docker/base`](https://github.com/ycpss91255-docker/base) — 兩個 repo 共用的 Docker workspace template。
+- [`ycpss91255-lab/seggpt`](https://github.com/ycpss91255-lab/seggpt) — SegGPT backend,`BackendInterface` 的第一個具體實作。`sam_manager` 透過 Layer 2 Python API(`from seggpt.api import SegGPTBackend`)import;反向 import backend 不允許。
+- [`ycpss91255-lab/base`](https://github.com/ycpss91255-lab/base) — 兩個 repo 共用的 Docker workspace template。
