@@ -42,8 +42,12 @@ jobs:
           # until the Layer 1 docker scaffold can bake them into the
           # image. httpx is required by starlette.testclient.
           apt-get install -y --no-install-recommends python3-pip
+          # pytest 9 removed the `path` hook argument that the humble
+          # launch_testing pytest plugin still declares, so colcon test
+          # dies while loading plugins. Keep pytest below 9.
           python3 -m pip install \
             structlog \
+            'pytest<9' \
             pytest-cov \
             fastapi \
             pillow \
