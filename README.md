@@ -4,7 +4,7 @@
 
 ROS 2 service that wraps SAM-family promptable segmentation backends behind a stable interface. Given a target image plus a reference (image + mask) — either by name from a runtime prompt store or inline in the request — returns a binary mask describing the same object class the reference depicts.
 
-The default backend is SegGPT (via `ycpss91255-docker/seggpt`'s Layer 2 Python API). The interface is designed so a future backend swap (VRP-SAM, PerSAM-F, SAM 2 Tiny, …) requires no consumer-side change — backend selection is a node startup parameter, not part of the wire contract.
+The default backend is SegGPT (via `ycpss91255-lab/seggpt`'s Layer 2 Python API). The interface is designed so a future backend swap (VRP-SAM, PerSAM-F, SAM 2 Tiny, …) requires no consumer-side change — backend selection is a node startup parameter, not part of the wire contract.
 
 ## Scope
 
@@ -102,5 +102,5 @@ Apache-2.0. See [LICENSE](LICENSE).
 
 ## Companion repos
 
-- [`ycpss91255-docker/seggpt`](https://github.com/ycpss91255-docker/seggpt) — SegGPT backend, the first concrete implementation of `BackendInterface`. `sam_manager` imports its Layer 2 Python API (`from seggpt.api import SegGPTBackend`); it never imports backend code in the reverse direction.
-- [`ycpss91255-docker/base`](https://github.com/ycpss91255-docker/base) — Docker workspace template used by both repos.
+- [`ycpss91255-lab/seggpt`](https://github.com/ycpss91255-lab/seggpt) — SegGPT backend, the first concrete implementation of `BackendInterface`. `sam_manager` imports its Layer 2 Python API (`from seggpt.api import SegGPTBackend`); it never imports backend code in the reverse direction.
+- [`ycpss91255-lab/base`](https://github.com/ycpss91255-lab/base) — Docker workspace template used by both repos.
